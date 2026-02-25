@@ -19,9 +19,15 @@ test('test', async ({ page }) => {
 
   // Click on the checkout button
   await page.locator('[data-test="checkout"]').click();
-
+// Fill in the checkout information
   await login.checkout('Shalini','Nair','600044');
-
+// Click on the continue button
+  //await page.locator('[data-test="continue"]').click();
+// Verify the checkout complete URL
+  await expect(page).toHaveURL(/checkout-complete/);
+// Click on the back home button
   await page.getByRole('button', { name: 'Open Menu' }).click();
+// Click on the logout button
   await page.locator('[data-test="logout-sidebar-link"]').click();
+
 });

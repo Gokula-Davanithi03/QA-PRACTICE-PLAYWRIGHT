@@ -25,6 +25,7 @@ exports.Login= class Login{
         await this.lastName.fill(lastName);
         await this.postalCode.fill(postalCode);
         await this.continueButton.click();
+        await this.finishButton.click();
     }
 
 }
