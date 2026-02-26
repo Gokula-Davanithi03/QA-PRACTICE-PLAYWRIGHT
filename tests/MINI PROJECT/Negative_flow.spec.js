@@ -1,13 +1,14 @@
 import { test, expect } from '@playwright/test';
-import { Login } from '../../Pages/Sauce.page.js';
+import { SauceLogin } from '../../Pages/Sauce.page.js';
 
-test('test', async ({ page }) => {
+test('Negative scenarios', async ({ page }) => {
  
- const login = new Login(page);
+ const login = new SauceLogin(page);
  await login.goto();
  await login.login('user','secret');
 
-await expect(page.locator('[data-test="error"]')).toBeVisible();
+//await login.expectErrorMessage();
+await expect(page.locator('[data-test="error"]')).toBeVisible(); 
 
 await login.login('standard_user','secret_sauce');
 
